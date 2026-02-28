@@ -1,0 +1,573 @@
+/* ========================================= */
+/* मूलभूत रीसेट आणि जागतिक शैली (Base Reset & Global Styles) */
+/* ========================================= */
+* {
+    margin: 0;                    /* सगळ्या elements चे बाहेरचे gap काढून टाकते */
+    padding: 0;                   /* सगळ्या elements चे आतले gap काढून टाकते */
+    box-sizing: border-box;       /* Width मध्ये padding आणि border count करते */
+}
+
+html {
+    scroll-behavior: smooth;      /* लिंक वर क्लिक केल्यावर हळू हळू scroll होते */
+    scroll-padding-top: 90px;     /* Header च्या खाली content सुरू होते (header नी झाकत नाही) */
+}
+
+body {
+    background: #f6f9fc;          /* हलका निळसर background */
+    font-family: 'Inter', system-ui, sans-serif;  /* आधुनिक font */
+    color: #1e293b;                /* गडद राखाडी text color */
+    line-height: 1.6;              /* ओळींमधील अंतर */
+    padding: 2rem 1.5rem;          /* body च्या आतलं अंतर */
+    display: flex;                 /* Flexbox layout */
+    justify-content: center;       /* content मध्यभागी आणते */
+}
+
+/* मुख्य कार्ड (Main Card) */
+.portfolio-card {
+    max-width: 1100px;             /* कमाल रुंदी */
+    width: 100%;                   /* पूर्ण रुंदी */
+    background: white;              /* पांढरी पार्श्वभूमी */
+    border-radius: 2rem;            /* गोलाकार कोपरे */
+    box-shadow: 0 25px 50px -12px rgba(0, 47, 91, 0.15);  /* सावली */
+    position: relative;
+    overflow: hidden;               /* Header ला व्यवस्थित ठेवते */
+}
+
+/* ========================================= */
+/* हेडर (Top Bar) - वरचा भाग */
+/* ========================================= */
+.top-bar {
+    position: sticky;               /* वरच्या बाजूला स्थिर राहते */
+    top: 0;
+    z-index: 9999;                   /* सगळ्या elements वर राहते */
+    display: flex;
+    align-items: center;             /* उभ्या मध्यभागी */
+    justify-content: space-between;  /* दोन्ही बाजूला space */
+    padding: 1.2rem 2rem;
+    background: rgba(255, 255, 255, 0.9);  /* अर्धपारदर्शक पांढरा */
+    backdrop-filter: blur(16px);      /* मागील भाग blur करते */
+    border-bottom: 1px solid #e9f0f5;
+    transition: all 0.3s ease;        /* गुळगुळीत बदल */
+}
+
+/* Scroll केल्यावर header चा effect */
+.top-bar.scrolled {
+    box-shadow: 0 10px 30px -10px rgba(0, 47, 91, 0.1);
+    border-bottom: 1px solid transparent;
+}
+
+/* Logo शैली */
+.logo {
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;           /* underline काढून टाकते */
+    background: linear-gradient(145deg, #2563eb, #0f2b63);  /* रंगांचा gradient */
+    -webkit-background-clip: text;    /* फक्त text ला color लावते */
+    -webkit-text-fill-color: transparent;  /* text पारदर्शक करते */
+}
+
+/* नेव्हिगेशन लिंक्स */
+.nav-links {
+    display: flex;
+    gap: 1.8rem;                     /* लिंक्समधील अंतर */
+    font-weight: 500;
+    align-items: center;
+}
+
+.nav-links > a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > a i { 
+    color: #3b82f6;                   /* आयकॉनचा रंग */ 
+}
+
+.nav-links > a:hover { 
+    color: #2563eb;                    /* वर फिरवल्यावर रंग बदल */
+    transform: translateY(-1px);       /* किंचित वर सरकते */
+}
+
+/* ========================================= */
+/* ड्रॉपडाउन मेनू (say hello चा menu) */
+/* ========================================= */
+.contact-dropdown { 
+    position: relative;                /* मेनू ला याच्या मानाने position देते */
+    display: inline-block; 
+}
+
+.dropdown-menu {
+    position: absolute;                /* बटणाच्या खाली येते */
+    top: 100%;
+    left: 0;                           /* डावीकडून सुरू */
+    margin-top: 12px;
+    background: white;
+    min-width: 220px;
+    border-radius: 1.2rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e2e8f0;
+    z-index: 10000;
+    opacity: 0;                         /* सुरुवातीला अदृश्य */
+    visibility: hidden;                 /* लपलेला */
+    transform: translateY(-10px);        /* किंचित वर */
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;                          /* दृश्यमान */
+    visibility: visible;                 /* दिसतो */
+    transform: translateY(0);             /* खाली येतो */
+}
+
+/* ड्रॉपडाउन मधील प्रत्येक पर्याय */
+.dropdown-item {
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    padding: 12px 18px; 
+    text-decoration: none;
+    color: #1e293b; 
+    transition: background 0.2s;
+}
+
+.dropdown-item:first-child { 
+    border-top-left-radius: 1.2rem; 
+    border-top-right-radius: 1.2rem; 
+}
+
+.dropdown-item:last-child { 
+    border-bottom-left-radius: 1.2rem; 
+    border-bottom-right-radius: 1.2rem; 
+}
+
+.dropdown-item:hover { 
+    background: #f8fafc; 
+    color: #2563eb; 
+}
+
+.dropdown-item i { 
+    width: 20px; 
+    text-align: center; 
+    font-size: 1.1rem; 
+}
+
+.dropdown-divider { 
+    height: 1px; 
+    background: #f1f5f9; 
+    margin: 4px 0; 
+}
+
+/* आयकॉनचे खास रंग */
+.fa-whatsapp { color: #25D366; }      /* WhatsApp हिरवा */
+.fa-phone-alt { color: #2563eb; }      /* फोन निळा */
+.fa-envelope { color: #ea4335; }       /* Gmail लाल */
+.fa-linkedin { color: #0A66C2; }       /* LinkedIn निळा */
+
+/* ========================================= */
+/* हिरो सेक्शन (स्वागत विभाग) */
+/* ========================================= */
+.hero {
+    padding: 4rem 2rem 3rem 2rem;
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    gap: 2.5rem;
+    background: #fafeff;
+}
+
+.hero-content { 
+    flex: 1 1 350px;                   /* लवचिक रुंदी */ 
+}
+
+.hero-badge {
+    background: #eff6ff; 
+    color: #1e40af; 
+    padding: 0.4rem 1rem;
+    border-radius: 20px; 
+    font-size: 0.85rem; 
+    font-weight: 600;
+    display: inline-block; 
+    margin-bottom: 1.5rem; 
+    border: 1px solid #bfdbfe;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem; 
+    font-weight: 800; 
+    line-height: 1.2; 
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #0f172a, #3b82f6);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+}
+
+.typing-container { 
+    font-size: 1.15rem; 
+    color: #475569; 
+    max-width: 550px; 
+    margin-bottom: 2rem; 
+    min-height: 60px;                   /* उंची स्थिर ठेवते */
+}
+
+/* बटण गट */
+.cta-group { 
+    display: flex; 
+    gap: 1rem; 
+    flex-wrap: wrap; 
+}
+
+/* प्राथमिक बटण (say hello) */
+.btn-primary, .btn-outline {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px;
+    padding: 0.85rem 1.8rem; 
+    border-radius: 50px; 
+    font-weight: 600;
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    font-size: 1rem;
+}
+
+.btn-primary { 
+    background: #2563eb; 
+    color: white; 
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); 
+}
+
+.btn-primary:hover { 
+    background: #1d4ed8; 
+    transform: translateY(-3px);          /* वर उचलते */
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4); 
+}
+
+/* दुय्यम बटण (see projects) */
+.btn-outline { 
+    background: white; 
+    color: #1e293b; 
+    border: 1px solid #cbd5e1; 
+}
+
+.btn-outline:hover { 
+    border-color: #2563eb; 
+    color: #2563eb; 
+    transform: translateY(-3px); 
+    background: #f8fafc; 
+}
+
+/* अवतार चित्र */
+.hero-avatar { 
+    flex: 0 0 220px; 
+    text-align: center; 
+    margin: 0 auto; 
+}
+
+.avatar-box {
+    background: linear-gradient(135deg, #e0f2fe, #ffffff);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;  /* अंडाकार आकार */
+    padding: 1.5rem; 
+    border: 4px solid white;
+    box-shadow: 0 20px 40px -10px rgba(12, 54, 114, 0.15);
+    display: inline-block;
+}
+
+.avatar-box i { 
+    font-size: 7rem; 
+    color: #2563eb; 
+    filter: drop-shadow(0px 8px 12px rgba(37, 99, 235, 0.3)); 
+}
+
+/* ========================================= */
+/* आकडेवारी विभाग (Stats) */
+/* ========================================= */
+.stats {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap: 1.5rem;
+    background: #f8fafc; 
+    border-radius: 24px; 
+    margin: 1rem 2rem 3rem 2rem;
+    padding: 2rem; 
+    border: 1px solid #e2e8f0;
+}
+
+.stat-item { 
+    text-align: center; 
+    min-width: 120px; 
+}
+
+.stat-number { 
+    font-size: 2.2rem; 
+    font-weight: 800; 
+    color: #1e293b; 
+    display: block; 
+}
+
+.stat-label { 
+    font-size: 0.85rem; 
+    color: #64748b; 
+    text-transform: uppercase; 
+    font-weight: 600; 
+    letter-spacing: 1px; 
+}
+
+/* ========================================= */
+/* विभाग शीर्षके (Section Titles) */
+/* ========================================= */
+.section-title {
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    margin: 3rem 2rem 1.5rem 2rem;
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+    color: #0f172a;
+}
+
+.section-title i {
+    background: #eff6ff; 
+    color: #2563eb; 
+    border-radius: 50%;
+    width: 45px; 
+    height: 45px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.2rem;
+}
+
+/* ========================================= */
+/* कौशल्ये ग्रिड (Skills Grid) */
+/* ========================================= */
+.skills-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /* स्वयंचलित स्तंभ */
+    gap: 1.2rem; 
+    padding: 0 2rem;
+}
+
+/* प्रत्येक कौशल्य कार्ड */
+.skill-card {
+    background: white; 
+    border: 1px solid #f1f5f9; 
+    border-radius: 1.2rem;
+    padding: 1.5rem 1rem; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    opacity: 0;                          /* सुरुवातीला अदृश्य */
+    transform: translateY(30px);          /* खाली सुरू होते */
+    transition: all 0.5s ease;
+}
+
+.skill-card.show-card { 
+    opacity: 1;                           /* दृश्यमान */
+    transform: translateY(0);              /* वर येते */ 
+}
+
+.skill-card:hover { 
+    border-color: #bfdbfe; 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.15); 
+}
+
+.skill-card i, .skill-card svg { 
+    font-size: 2.2rem; 
+    width: 35px; 
+    height: 35px; 
+    color: #3b82f6; 
+    margin-bottom: 1rem; 
+    fill: #3b82f6; 
+}
+
+.skill-card span { 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    color: #334155; 
+    text-align: center; 
+}
+
+/* ========================================= */
+/* प्रकल्प ग्रिड (Projects Grid) */
+/* ========================================= */
+.projects-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    padding: 0 2rem 2rem 2rem;
+}
+
+.project-item {
+    background: white; 
+    border-radius: 1.5rem; 
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); 
+    border: 1px solid #f1f5f9;
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: all 0.5s ease;
+}
+
+.project-item.show-project { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.project-item:hover { 
+    border-color: #93c5fd; 
+    box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.15); 
+    transform: translateY(-5px); 
+}
+
+.project-icon {
+    background: #eff6ff; 
+    border-radius: 1rem; 
+    width: 3.5rem; 
+    height: 3.5rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 1.5rem;
+}
+
+.project-icon i { 
+    font-size: 1.8rem; 
+    color: #2563eb; 
+}
+
+.project-item h3 { 
+    font-size: 1.3rem; 
+    margin-bottom: 0.8rem; 
+    color: #0f172a; 
+}
+
+.project-item p { 
+    color: #64748b; 
+    font-size: 0.95rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.project-link {
+    font-weight: 600; 
+    color: #2563eb; 
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    transition: gap 0.2s;
+}
+
+.project-link:hover { 
+    gap: 12px; 
+    color: #1e40af; 
+}
+
+/* ========================================= */
+/* तळटीप (Footer) */
+/* ========================================= */
+.footer {
+    text-align: center; 
+    padding: 2rem; 
+    color: #64748b; 
+    font-size: 0.9rem;
+    border-top: 1px solid #f1f5f9; 
+    background: #fafaf9;
+}
+
+/* ========================================= */
+/* ॲनिमेशन्स */
+/* ========================================= */
+.typing-cursor { 
+    color: #2563eb; 
+    font-weight: 600; 
+    animation: blink 0.9s infinite;      /* उजळणे-मिटणे */
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+.slide-from-right { 
+    opacity: 0; 
+    transform: translateX(30px); 
+    animation: slideIn 0.8s ease forwards; 
+}
+
+@keyframes slideIn { 
+    to { opacity: 1; transform: translateX(0); } 
+}
+
+/* ========================================= */
+/* मोबाइल दृश्य (Mobile View - 768px खाली) */
+/* ========================================= */
+/* Force white background on all mobile containers */
+@media (max-width: 768px) {
+    /* Ensure body and main container are white */
+    body, 
+    .portfolio-card,
+    .hero,
+    .stats,
+    .skills-grid,
+    .projects-grid,
+    .footer {
+        background: white !important;
+    }
+
+    /* Hero section background fix */
+    .hero {
+        background: white !important;
+    }
+
+    /* Stats section background */
+    .stats {
+        background: #f8fafc !important;  /* हलका राखाडी ठीक आहे */
+    }
+
+    /* Fix any potential black backgrounds */
+    * {
+        background-color: transparent;
+    }
+
+    /* Dropdown backdrop - हलका करा */
+    .dropdown-menu.show::before {
+        background: rgba(0, 0, 0, 0.3) !important;  /* कमी काळा */
+        backdrop-filter: blur(3px);
+    }
+
+    /* Dropdown menu स्वतः white असायला हवा */
+    .dropdown-menu {
+        background: white !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+
+    /* Dropdown items background */
+    .dropdown-item {
+        background: white !important;
+    }
+
+    .dropdown-item:hover {
+        background: #f8fafc !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    body, 
+    .portfolio-card,
+    .hero,
+    .stats,
+    .skills-grid,
+    .projects-grid,
+    .footer {
+        background: white !important;
+    }
+}

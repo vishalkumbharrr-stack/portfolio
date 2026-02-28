@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- मोबाइलवर व्यवस्थित दिसण्यासाठी viewport सेटिंग -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Kumbhar · Portfolio</title>
+    
+    <!-- Font Awesome आयकॉन्ससाठी (Icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <!-- Google Font - Inter (सुंदर फॉन्ट) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- आमची CSS फाइल (Our CSS file) -->
+    <link rel="stylesheet" href="Protfolio2.css">
+</head>
+<body>
+    <!-- मुख्य कार्ड (Main portfolio card) -->
+    <div class="portfolio-card">
+
+        <!-- ===================== हेडर / नेव्हिगेशन ===================== -->
+        <div class="top-bar" id="topBar">
+            <!-- Logo - वर क्लिक केल्यावर पेज टॉपवर जाईल -->
+            <a href="#" onclick="window.scrollTo(0,0); return false;" class="logo">
+                <i class="fas fa-terminal" style="color:#2563eb; margin-right: 6px;"></i>Vishal.dev
+            </a>
+            
+            <!-- नेव्हिगेशन लिंक्स (Navigation links) -->
+            <div class="nav-links">
+                <!-- About लिंक - aboutme सेक्शनवर जाईल -->
+                <a href="#aboutme"><i class="fas fa-user"></i> About</a>
+                
+                <!-- Projects लिंक - project सेक्शनवर जाईल -->
+                <a href="#project"><i class="fas fa-star"></i> Projects</a>
+                
+                <!-- Resume बटण - Google Drive वरून resume उघडेल -->
+                <a href="https://drive.google.com/file/d/1pH5ZsgVtDHg0HAMP-_AaKmXQsuQ9VQAs/view?usp=sharing" target="_blank" class="resume-btn">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+            </div>
+        </div>
+
+        <!-- ===================== हिरो सेक्शन (स्वागत) ===================== -->
+        <div class="hero">
+            <div class="hero-content">
+                <!-- open to work बॅज -->
+                <span class="hero-badge"><i class="fas fa-rocket" style="margin-right: 5px;"></i> open to work</span>
+                
+                <!-- मुख्य शीर्षक (Main heading) -->
+                <h1 class="slide-from-right">Building smart, user-centric digital experiences.</h1>
+                
+                <!-- टायपिंग ॲनिमेशनसाठी परिच्छेद (Typing animation paragraph) -->
+                <p class="typing-container">
+                    <i class="fas fa-map-pin" style="color: #2563eb; margin-right: 8px;"></i>
+                    <span id="typing-para"></span><span class="typing-cursor">|</span>
+                </p>
+                
+                <!-- बटण गट (Button group) -->
+                <div class="cta-group">
+                    
+                    <!-- ===== कॉन्टॅक्ट ड्रॉपडाउन (say hello बटण) ===== -->
+                    <div class="contact-dropdown">
+                        <!-- say hello बटण - क्लिक केल्यावर ड्रॉपडाउन उघडेल -->
+                        <a href="#" onclick="toggleContactMenu(event); return false;" class="btn-primary contact-trigger">
+                            <i class="fas fa-paper-plane"></i> say hello
+                        </a>
+                        
+                        <!-- ड्रॉपडाउन मेनू (लपलेला, क्लिक केल्यावर दिसेल) -->
+                        <div class="dropdown-menu" id="contactMenu">
+                            <!-- कॉल पर्याय (Call option) -->
+                            <a href="tel:+919607177067" class="dropdown-item">
+                                <i class="fas fa-phone-alt"></i><span>Call Now</span>
+                            </a>
+                            
+                            <!-- WhatsApp पर्याय -->
+                            <a href="https://wa.me/919607177067?text=Hi%20Vishal,%20I%20saw%20your%20portfolio..." target="_blank" class="dropdown-item">
+                                <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+                            </a>
+                            
+                            <!-- ईमेल पर्याय -->
+                            <a href="mailto:vishalkumbharrr@gmail.com" class="dropdown-item">
+                                <i class="fas fa-envelope"></i><span>Email</span>
+                            </a>
+                            
+                            <!-- विभाजक रेषा (Divider line) -->
+                            <div class="dropdown-divider"></div>
+                            
+                            <!-- GitHub पर्याय -->
+                            <a href="https://github.com/vishalkumbharrr-stack" target="_blank" class="dropdown-item">
+                                <i class="fab fa-github"></i><span>GitHub</span>
+                            </a>
+                            
+                            <!-- LinkedIn पर्याय -->
+                            <a href="https://www.linkedin.com/in/vishal-kumbhar-987681354/" target="_blank" class="dropdown-item">
+                                <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- see projects बटण (projects सेक्शनवर जाईल) -->
+                    <a href="#project" class="btn-outline">
+                        <i class="fas fa-eye"></i> see projects
+                    </a>
+                </div>
+            </div>
+            
+            <!-- अवतार चित्र (Avatar image) -->
+            <div class="hero-avatar">
+                <div class="avatar-box">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== आकडेवारी विभाग (Stats) ===================== -->
+        <div class="stats">
+            <div class="stat-item"><span class="stat-number">Fresher</span> <span class="stat-label"></span></div>
+            <div class="stat-item"><span class="stat-number">3+</span> <span class="stat-label">projects</span></div>
+            <div class="stat-item"><span class="stat-number">07</span> <span class="stat-label">certifications</span></div>
+            <div class="stat-item"><span class="stat-number">∞</span> <span class="stat-label">Always learning</span></div>
+        </div>
+
+        <!-- ===================== कौशल्ये विभाग (Skills) ===================== -->
+        <!-- id="aboutme" - About लिंक येथे येते -->
+        <div id="aboutme" class="section-title">
+            <i class="fas fa-cogs"></i> <span>Toolbox I Enjoy</span>
+        </div>
+
+        <!-- कौशल्ये ग्रिड (Skills grid) -->
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fas fa-robot"></i> <span>Generative AI</span></div>
+            <div class="skill-card"><i class="fas fa-brain"></i> <span>Prompt Engineering</span></div>
+            <div class="skill-card"><i class="fab fa-python"></i> <span>Full Stack Python</span></div>
+            <div class="skill-card"><i class="fas fa-globe"></i> <span>Web Development</span></div>
+            <!-- Django साठी SVG आयकॉन (विशेष) -->
+            <div class="skill-card django-card">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.163 1.059c-2.012 0-3.354 1.259-3.354 3.141v1.944c-1.317 0-2.457.923-2.457 2.241v2.18c0 1.318 1.14 2.241 2.457 2.241h.142c-.083.336-.142.704-.142 1.091 0 3.321 2.515 5.25 5.753 5.25 1.571 0 2.872-.419 3.614-1.006l-1.121-1.879c-.58.336-1.391.604-2.222.604-1.896 0-3.123-1.04-3.123-3.053 0-.335.035-.637.118-.923h3.582c1.318 0 2.457-.923 2.457-2.241V8.385c0-1.318-1.14-2.241-2.457-2.241h-3.141V4.2c0-.939.603-1.342 1.442-1.342.812 0 1.571.268 2.062.57l.951-2.013c-.872-.57-2.222-.898-3.59-.356z"/>
+                </svg>
+                <span>Django</span>
+            </div>
+            <div class="skill-card"><i class="fas fa-flask"></i> <span>Flask</span></div>
+            <div class="skill-card"><i class="fas fa-plug"></i> <span>REST APIs</span></div>
+            <div class="skill-card"><i class="fas fa-database"></i> <span>SQLite</span></div>
+            <div class="skill-card"><i class="fas fa-video"></i> <span>Video Editing</span></div>
+            <div class="skill-card"><i class="fas fa-camera"></i> <span>Photography</span></div>
+            <div class="skill-card"><i class="fas fa-mobile-alt"></i> <span>Responsive Design</span></div>
+        </div>
+
+        <!-- ===================== प्रकल्प विभाग (Projects) ===================== -->
+        <!-- id="project" - Projects लिंक येथे येते -->
+        <div id="project" class="section-title">
+            <i class="fas fa-star"></i> <span>Released Projects</span>
+        </div>
+        
+        <!-- प्रकल्प ग्रिड (Projects grid) -->
+        <div class="projects-grid">
+            <!-- पहिला प्रकल्प (First project) -->
+            <div class="project-item">
+                <div class="project-icon"><i class="fas fa-globe"></i></div>
+                <h3>Vaibhav Motors</h3>
+                <p>Garage management system that automates service bookings and digitalizes customer interactions for smoother operations.</p>
+                <a href="https://v15hal.pythonanywhere.com/" target="_blank" class="project-link">live demo <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- दुसरा प्रकल्प (Second project) -->
+            <div class="project-item">
+                <div class="project-icon"><i class="fab fa-whatsapp" style="color:#25D366;"></i></div>
+                <h3>Vaibhav Motors WhatsApp Bot</h3>
+                <p>AI-powered WhatsApp bot for automated service booking, real-time inventory checks, and instant customer support.</p>
+                <a href="https://wa.me/918087267039?text=Hi%20Vaibhav%20Motors,%20I%20need%20information%20about%20your%20services" target="_blank" class="project-link">explore <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- ===================== तळटीप (Footer) ===================== -->
+        <div class="footer">
+            <i class="fas fa-code" style="opacity: 0.6; margin-right: 6px;"></i> 
+            designed with passion — <strong>Vishal Kumbhar</strong>
+            <span style="display: inline-block; margin: 0 0.8rem;">⚡</span> 
+            <i class="fas fa-heart" style="color: #ef4444;"></i> always learning & building
+        </div>
+    </div>
+
+    <!-- आमची JavaScript फाइल (Our JS file) -->
+    <script src="Protfolio2.js"></script>
+</body>
+</html>
